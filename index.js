@@ -3,6 +3,7 @@
 'use strict';
 
 var Logger = require('le_node');
+var logger = new Logger({ token: "6a25cf8a-f906-4dc5-8c51-7bb0b8efd66d" });
 var tls = require('tls');
 var net = require('net');
 var eos = require('end-of-stream');
@@ -35,7 +36,6 @@ function start(opts) {
   var statsToken = opts.statstoken || opts.token;
   var out;
   var noRestart = function() {};
-  var logger = new Logger({ token: logsToken });
   logger.info("Starting Logentries Docker Container")
   logger.info("Parameters are " + opts)
   var filter = through.obj(function(obj, enc, cb) {
