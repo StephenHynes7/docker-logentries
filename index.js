@@ -38,6 +38,7 @@ function start(opts) {
   var noRestart = function() {};
   logger.info("Starting Logentries Docker Container")
   logger.info("Parameters are " + opts)
+  console.log("Parameters are " + opts)
   var filter = through.obj(function(obj, enc, cb) {
     addAll(opts.add, obj);
 
@@ -128,6 +129,7 @@ function cli() {
     default: {
       json: false,
       stats: true,
+      secure: true,
       logs: true,
       dockerEvents: true,
       statsinterval: 30,
